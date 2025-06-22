@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us - Kashish Products</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+
+    <!-- Header -->
+ 
+  <header class="bg-black text-white flex items-center px-4 md:px-8 py-2 md:py-4 shadow">
+    <div class="flex items-center space-x-4 md:space-x-8 text-sm md:text-base flex-wrap md:flex-nowrap">
+      <div class="flex items-center space-x-1 cursor-pointer select-none">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Hemp_leaf_icon.svg" alt="Logo" class="w-5 h-5 md:w-7 md:h-7" />
+        <span class="font-bold">Kashish Products</span>
+        <span class="border border-white rounded-full px-1 text-xs font-semibold">TM</span>
+      </div>
+      <div class="hidden sm:flex space-x-6 font-semibold tracking-tight">
+        <a href="#" class="hover:text-green-400 transition">Bags (BACKPACK COLLECTION)</a>
+        <a href="#" class="hover:text-green-400 transition">Accessories (Wallets, Sling Bags, Waist Pouch Bag)</a>
+      </div>
+    </div>
+    <nav class="ml-auto flex items-center space-x-4 md:space-x-6 text-sm md:text-base font-semibold">
+      <a href="/homePage.html" class="hover:text-green-400 transition">Home</a>
+      <a href="/catalogue.html" class="hover:text-green-400 transition">Catalog</a>
+      <a href="/contactus.html" class="text-green-600 bg-green-100 rounded px-3 py-1 hidden md:inline-block">Contact</a>
+      <button title="B2B Portal" class="bg-green-600 text-white px-3 py-1 rounded font-semibold hover:bg-green-700 transition hidden md:inline-block"><a href="/index.html">B2B</a></button>
+        <a href="addToCart.html" aria-label="Shopping Cart" title="Shopping Cart" class="hover:text-green-400 transition inline-block">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="9" cy="21" r="1"/>
+        <circle cx="20" cy="21" r="1"/>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 1.98-1.75l1.38-9.25H6"/>
+    </svg>
+</a>
+
+    </nav>
+  </header>
+  <!-- Main Container -->
+       <style>
+        :root {
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --gray-light: #f3f4f6;
+            --gray-medium: #d1d5db;  
+            --gray-dark: #6b7280;
+            --success: #10b981;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9fafb;
+            color: #111827;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        header {
+            background-color: white;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .cart-icon {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .cart-icon span {
+            position: absolute;
+            top: -0.5rem;
+            right: -0.5rem;
+            background-color: var(--primary);
+            color: white;
+            width: 1.25rem;
+            height: 1.25rem;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        main {
+            flex: 1;
+            padding: 2rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .cart-header h1 {
+            font-size: 1.875rem;
+            font-weight: 700;
+        }
+        
+        .empty-cart-container {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .empty-cart-icon {
+            width: 120px;
+            height: 120px;
+            background-color: var(--gray-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .empty-cart-icon::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border: 2px dashed var(--gray-medium);
+            border-radius: 50%;
+            animation: pulse 3s infinite ease-in-out;
+        }
+        
+        .empty-cart-icon svg {
+            width: 60px;
+            height: 60px;
+            color: var(--gray-dark);
+        }
+        
+        .empty-cart-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--gray-dark);
+        }
+        
+        .empty-cart-text {
+            color: var(--gray-dark);
+            margin-bottom: 1.5rem;
+            max-width: 400px;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+        
+        .btn-primary svg {
+            margin-right: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.9;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+        }
+        
+        footer {
+            background-color: white;
+            padding: 1.5rem;
+            text-align: center;
+            color: var(--gray-dark);
+            font-size: 0.875rem;
+            box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+ 
+    <main>
+        <div class="cart-header">
+            <h1>Your Shopping Cart</h1>
+        </div>
+        
+        <div class="empty-cart-container">
+            <div class="empty-cart-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                </svg>
+            </div>
+            <h2 class="empty-cart-title">Your cart is empty</h2>
+            <p class="empty-cart-text">Looks like you haven't added any items to your cart yet. Start shopping to fill it with amazing products!</p>
+            <button class="btn btn-primary" onclick="window.location.href='/homePage.html'">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z" />
+                </svg>
+                Start Shopping
+            </button>
+        </div>
+    </main>
+    
+  
+
+
+
+
+  <!-- Footer -->
+  <footer class="mt-auto bg-black text-gray-300 text-center text-sm py-4">
+    &copy; 2024 Kashish Products. All rights reserved.
+  </footer>
+
+  
+    <script>
+        // Animation for the empty cart icon
+        const emptyCartIcon = document.querySelector('.empty-cart-icon');
+        
+        emptyCartIcon.addEventListener('mouseenter', () => {
+            emptyCartIcon.style.transform = 'scale(1.05)';
+        });
+        
+        emptyCartIcon.addEventListener('mouseleave', () => {
+            emptyCartIcon.style.transform = 'scale(1)';
+        });
+    </script>
+
+</body>
+</html>
+
