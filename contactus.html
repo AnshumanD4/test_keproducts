@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us - Kashish Products</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+
+    <!-- Header -->
+  <header class="bg-black text-white flex items-center px-4 md:px-8 py-2 md:py-4 shadow">
+    <div class="flex items-center space-x-4 md:space-x-8 text-sm md:text-base flex-wrap md:flex-nowrap">
+      <div class="flex items-center space-x-1 cursor-pointer select-none">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Hemp_leaf_icon.svg" alt="Logo" class="w-5 h-5 md:w-7 md:h-7" />
+        <span class="font-bold">Kashish Products</span>
+        <span class="border border-white rounded-full px-1 text-xs font-semibold">TM</span>
+      </div>
+      <div class="hidden sm:flex space-x-6 font-semibold tracking-tight">
+        <a href="#" class="hover:text-green-400 transition">Bags (BACKPACK COLLECTION)</a>
+        <a href="#" class="hover:text-green-400 transition">Accessories (Wallets, Sling Bags, Waist Pouch Bag)</a>
+      </div>
+    </div>
+    <nav class="ml-auto flex items-center space-x-4 md:space-x-6 text-sm md:text-base font-semibold">
+      <a href="/homePage.html" class="hover:text-green-400 transition">Home</a>
+      <a href="/catalogue.html" class="hover:text-green-400 transition">Catalog</a>
+      <a href="/contactus.html" class="text-green-600 bg-green-100 rounded px-3 py-1 hidden md:inline-block">Contact</a>
+      <button title="B2B Portal" class="bg-green-600 text-white px-3 py-1 rounded font-semibold hover:bg-green-700 transition hidden md:inline-block"><a href="/b2B.html">B2B</a></button>
+      <a href="addToCart.html" aria-label="Shopping Cart" title="Shopping Cart" class="hover:text-green-400 transition inline-block">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="9" cy="21" r="1"/>
+        <circle cx="20" cy="21" r="1"/>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 1.98-1.75l1.38-9.25H6"/>
+    </svg>
+</a>
+    </nav>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-grow container mx-auto px-4 py-10 md:py-16 max-w-3xl">
+
+    <section aria-labelledby="contact-title" class="bg-white rounded-lg shadow p-8 md:p-12">
+      <h1 id="contact-title" class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2">Contact Us</h1>
+      <p class="text-gray-600 mb-8">Have questions or want to get in touch? Fill out the form below and we'll respond as soon as possible.</p>
+
+      <form id="contactForm" class="space-y-6" novalidate>
+
+      <fieldset>
+        <p class="font-extrabold">
+          Head Office
+        </p>
+        <p class="ml-10px text-xl">
+          KE Enterprises<br>
+          498, pocket 6,<br>
+          Sector 2, Rohini, Delhi, 110085<br>
+          service@keproduct.com<br>
+          +91 8882894991<br>
+        </p>
+      </fieldset>
+
+        <div class="flex items-center space-x-4">
+          <button onclick="window.location.href='/b2B.html';" class="bg-green-600 text-white font-semibold px-6 py-2 rounded-md shadow hover:bg-green-700 transition focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-1"><a href="/b2B.html"></a>Send Message</button>
+          <p id="formStatus" class="text-green-600 font-semibold hidden"></p>
+        </div>
+
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-auto bg-black text-gray-300 text-center text-sm py-4">
+    &copy; 2024 Kashish Products. All rights reserved.
+  </footer>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const fullNameInput = document.getElementById('fullName');
+    const emailInput = document.getElementById('email');
+    const subjectInput = document.getElementById('subject');
+    const messageInput = document.getElementById('message');
+
+    const fullNameError = document.getElementById('fullNameError');
+    const emailError = document.getElementById('emailError');
+    const subjectError = document.getElementById('subjectError');
+    const messageError = document.getElementById('messageError');
+
+    const formStatus = document.getElementById('formStatus');
+
+    function validateEmail(email) {
+      // Basic email pattern check
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      let isValid = true;
+
+      // Reset errors
+      fullNameError.classList.add('hidden');
+      emailError.classList.add('hidden');
+      subjectError.classList.add('hidden');
+      messageError.classList.add('hidden');
+      formStatus.classList.add('hidden');
+      formStatus.textContent = '';
+
+      if (!fullNameInput.value.trim()) {
+        fullNameError.classList.remove('hidden');
+        isValid = false;
+      }
+
+      if (!emailInput.value.trim() || !validateEmail(emailInput.value.trim())) {
+        emailError.classList.remove('hidden');
+        isValid = false;
+      }
+
+      if (!subjectInput.value.trim()) {
+        subjectError.classList.remove('hidden');
+        isValid = false;
+      }
+
+      if (!messageInput.value.trim()) {
+        messageError.classList.remove('hidden');
+        isValid = false;
+      }
+
+      if (!isValid) return;
+
+      // Simulate sending form data
+      formStatus.textContent = 'Sending message...';
+      formStatus.classList.remove('hidden');
+      formStatus.classList.remove('text-green-600');
+      formStatus.classList.remove('text-red-600');
+      formStatus.classList.add('text-gray-700');
+
+      setTimeout(() => {
+        // Simulated successful send
+        form.reset();
+        formStatus.textContent = 'Thank you for reaching out! We will get back to you shortly.';
+        formStatus.classList.remove('text-gray-700');
+        formStatus.classList.add('text-green-600');
+      }, 1400);
+    });
+  </script>
+
+</body>
+</html>
+
